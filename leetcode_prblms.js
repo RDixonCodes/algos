@@ -413,10 +413,13 @@ console.log(fizzBuzz(20))
  * of characters and reverses the order of the words in place. */
 
 function reverseWords(words) {
-    
+
+    let newWord = words.reverse().join(" ")
+
+    return newWord;
 }
 
-console.log(reverseWords(['e','k','a','c','','d','n','u','o','p','','l','e','e','t','s']))
+// console.log(reverseWords(['e','k','a','c','','d','n','u','o','p','','l','e','e','t','s']))
 
 
 /**Write code that enhances all arrays such that you can call the array.last() 
