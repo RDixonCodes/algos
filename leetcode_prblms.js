@@ -480,3 +480,13 @@ const romanToInt = function(s) {
 }
 
 console.log(romanToInt("XXXIV"));
+
+//You are given a string (allowed) consisting of distinct characters and an array of strings (words). A string is
+//consistant if all characters in the string appear in the string (allowed)
+
+var countConsistentStrings = function(allowed, words) {
+    return words.filter((x) => x.split("").every((x) => allowed.split("").includes(x))).length;
+}
+
+console.log(countConsistentStrings("ab", ["ab", "cdef", "aab","ceabd"]))
+console.log(countConsistentStrings("abc", ["abc", "c", "ab","acb"]))
