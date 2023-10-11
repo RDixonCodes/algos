@@ -142,7 +142,8 @@ class BST {
     //Return the array of values
 
     DFSPostOrder() {
-        var visited = []
+        var visited = [],
+        sum = 0;
 
         function helper(node) {
             if(node.left) helper(node.left);
@@ -150,7 +151,12 @@ class BST {
             visited.push(node.value);
         }
         helper(this.root);
-        return visited;
+        //add sum of all nodes visited
+        for(var i = 0; i < visited.length; i++){
+            sum += visited[i]
+        }
+        
+        return `Visited nodes: [${visited}]. Sum of all nodes visited: ${sum}.`;
     }
 
     //DFS(In Order) steps - recursively:
