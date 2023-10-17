@@ -114,6 +114,13 @@
 //Enqueue method accepts a value and priority, makes a new node, and puts it in the right spot based off of its priority
 //Dequeue method removes root element, returns it, and rearranges heap using priority.
 
+class Node {
+    constructor(val, priority) {
+        this.val = val;
+        this.priority = priority;
+    }
+}
+
 class PriorityQueue {
     constructor(){
         this.values = [];
@@ -193,12 +200,6 @@ class PriorityQueue {
     }
 }
 
-class Node {
-    constructor(val, priority) {
-        this.val = val;
-        this.priority = priority;
-    }
-}
 
 let ER = new PriorityQueue();
 

@@ -19,7 +19,7 @@ class Student {
     }
 
     static enrollStudents() { //class Method
-        return "ENROLLING STUDENTS!"
+        return "STUDENT ENROLLED!";
     }
 }
 
