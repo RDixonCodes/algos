@@ -1,3 +1,5 @@
+//*********DEPTH FIRST SEARCH(Recursive)******/
+
 class Graph {
     constructor() {
         this.adjacencyList = {};
@@ -35,22 +37,52 @@ class Graph {
         }
         delete this.adjacencyList[vertex];
     }
+    //DEPTH FIRST TRAVERSAL*****
+
+    //The function should accep a starting node
+    dfs_recursive(start) {
+    //Create a list to store the end result, to be returned at the very end
+    const result = [];
+    //Create an object to store visited vertices
+    const visited = {};
+    const adjacencyList = this.adjacencyList;
+    
+    //Create a helper function which accepts a vertex
+    (function dfs(vertex){
+        //The helper function should return early if the vertex is empty
+        if(!vertex) return null;
+    //The helper function should place the vertex it accepts into the visited object and push that vertex into the result array
+        visited[vertex] = true;
+        result.push(vertex);
+        //Loop over all of the values in the adjacencyList for that vertex
+        adjacencyList[vertex].forEach(neighbor => {
+            if(!visited[neighbor]){
+                return dfs(neighbor)
+            }
+        });
+    })(start)
+    return result;
+    }
+    
+    //If any of those values have not been visited, recursively invoke the helper function with that vertex
 }
 
 let g = new Graph();
 
-g.addVertex("Tokyo");
-g.addVertex("San Francisco");
-g.addVertex("San Francisco");//duplicate test case
-g.addVertex("Tampa");
-g.addVertex("Seattle");
+g.addVertex("A")
+g.addVertex("B")
+g.addVertex("C")
+g.addVertex("D")
+g.addVertex("E")
+g.addVertex("F")
 
-g.addEdge("San Francisco", "Tampa")
-g.addEdge("Tokyo", "Tampa")
-g.addEdge("Seattle", "San Francisco")
+g.addEdge("A","B")
+g.addEdge("A","C")
+g.addEdge("B","D")
+g.addEdge("C","E")
+g.addEdge("D","E")
+g.addEdge("D","F")
+g.addEdge("E","F")
 
-g.removeEdge("Tokyo", "Tampa")
-
-g.removeVertex("Seattle");
-
-console.log(g);
+console.log(g)
+console.log(g.dfs_recursive("A"))
