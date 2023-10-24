@@ -39,7 +39,7 @@ class Graph {
     }
     //DEPTH FIRST TRAVERSAL*****
 
-    //The function should accep a starting node
+    //The function should accept a starting node
     dfs_recursive(start) {
     //Create a list to store the end result, to be returned at the very end
     const result = [];
@@ -57,14 +57,77 @@ class Graph {
         //Loop over all of the values in the adjacencyList for that vertex
         adjacencyList[vertex].forEach(neighbor => {
             if(!visited[neighbor]){
+            //If any of those values have not been visited, recursively invoke the helper function with that vertex
                 return dfs(neighbor)
             }
         });
-    })(start)
+    })(start);
+
     return result;
     }
-    
-    //If any of those values have not been visited, recursively invoke the helper function with that vertex
+    //The function should accept a starting node
+    dfs_iterative(start) {
+    //Create a stack to help us keep track of vertices(use a list/array)
+    const   stack = [start]; //initialize variable
+    //Create a list to store the end result, to be returned at the very end
+    const result = [];
+    //Create an object to store visited vertices
+    const visited = {}
+    let currentVertex;
+    //add the starting vertex to the stack, and mark it visited
+        visited[start] = true;
+    //While the stack has somethibg in it:
+    //Pop the next vertex from the stack
+    while(stack.length){
+
+        console.log(stack);
+
+        currentVertex = stack.pop();
+        result.push(currentVertex);
+        //If that vertex hasn't been visited yet:
+        this.adjacencyList[currentVertex].forEach(neighbor => {
+            if(!visited[neighbor]){
+                //Mark it as visited
+                visited[neighbor] = true;
+                //Push all of its neighbors into the stack
+                stack.push(neighbor);
+            }
+        })
+    }
+    //Add it to the result list
+    //Return the result array
+    return result;
+    }
+    //******BREADTH FIRST SEARCH******/
+    //This function should accept a starting vertex
+    BFS(start) {
+    //Create a queue(you can use an array) and place the starting vertex in it
+        const queue = [start];
+        //Create an array to store the nodes visited
+        const result = []
+        //Create an object to store nodes visited
+        const visited = {};
+        let currentVertex;
+        //Mark the starting vertex as visited
+        visited[start] = true;
+        //Loop as long as there is anything in the queue
+        while(queue.length){
+        // Remove the first vertex from the queue and push it into the array that stores nodes visited
+            currentVertex = queue.shift();
+            result.push(currentVertex);
+            //Loop over each vertex in the adjancency list for the vertex you are visiting
+            this.adjacencyList[currentVertex].forEach(neighbor => {
+            //If it is not inside the object that stores nodes visited, mark it as visited and enqueue that vetex
+                if(!visited[neighbor]){
+                    visited[neighbor] = true;
+                    queue.push(neighbor);
+                }
+            });
+
+        }
+        //Once you have finished looping, return the array of visited nodes
+        return result;
+    }
 }
 
 let g = new Graph();
@@ -85,4 +148,6 @@ g.addEdge("D","F")
 g.addEdge("E","F")
 
 console.log(g)
-console.log(g.dfs_recursive("A"))
+// console.log(g.dfs_recursive("A"))
+// console.log(g.dfs_iterative("A"))
+console.log(g.BFS("A"))
