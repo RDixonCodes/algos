@@ -45,11 +45,7 @@ class Node{
     }
 }
 
-/* PUSH: This function should accept a value
-Create a new node using the value passed to the function
-If there is no head property on the list, set the head and tail to be the newly created node.
-Otherwise set the next property on the tail to be the new node and set the tail property
- on the list to be the newly created node. Increment the length by one. */
+/* PUSH: */
 
 class SinglyLinkedList{
     constructor(){
@@ -57,15 +53,21 @@ class SinglyLinkedList{
         this.tail = null;
         this.length = 0;
     }
-    push(val) {//will be method that places values in list
+    //This function should accept a value
+    push(val) {//method that places values in list
+        //Create new node
         var newNode = new Node(val);
+        //If there is no head property on the list, set the head and tail to be the newly created node.
         if(!this.head){
             this.head = newNode;
             this.tail = this.head;
+        //Otherwise set the next property on the tail to be the new node and set the tail property
+        // - on the list to be the newly created node.
         } else {
             this.tail.next = newNode;
             this.tail = newNode;
         }
+        //Increment the length by one.
         this.length ++;
         return this
     }
@@ -188,21 +190,29 @@ class SinglyLinkedList{
         this.length--;
         return removed;    
     }
-    /*Swap the head and tail. Create a variable called next. Create a variable called prev.
-    Create a variable called node and initialize it to the head property. Loop through the 
-    list. Set next to be the next property on whatever node is. Set prev to be the value of
+    /* Create a variable called node and initialize it to the head property. 
+    Swap the head and tail. Create a variable called next. Create a variable called prev.
+    Loop through the list. Set next to be the next property on whatever node is. Set prev to be the value of
     the node variable. Set the node variable to be the value of the next variable.*/
 
     reverse() {
+        //Create a variable called node and initialize it to the head property.
         var node = this.head;
+        //Swap the head and tail.
         this.head = this.tail;
         this.tail = node;
+        //Create a variable called next.
         var next;
+        //Create a variable called prev.
         var prev = null;
+        //Loop through the list.
         for(var i = 0; i < this.length; i++) {
+            //Set next to be the next property on whatever node is.
             next = node.next;
             node.next = prev;
+            //Set prev to be the value of the node variable.
             prev = node;
+            //Set the node variable to be the value of the next variable.
             node = next;
         }
         return this;

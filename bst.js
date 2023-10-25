@@ -22,15 +22,6 @@
 
 // console.log(tree);
 
-//  **INSERTING**
-//**STEPS: Create a new node. Starting at the root, check if there is a root, if not - the root now becomes the new node */
-//If there is a root, check if the value of the new node is greater than or less than the value of the root
-//If it is greater - Check to see if there is a node to the right. If there is move to the node and repeat thses steps
-//If there is not, add the node as the right property
-//If is is less - Check to see if there is a node to the left
-//If there is, move to that node and repeat these steps
-//If there is not, add that node as the left property
-
 class Node {
     constructor(value) {
         this.value = value;
@@ -43,27 +34,35 @@ class BST {
     constructor() {
         this.root = null;
     }
+    //                                       **INSERTING**
     insert(value) {
+        //Create a new node.
         var newNode = new Node(value);
-        if(this.root === null) {
+        //Starting at the root, check if there is a root, if not - the root now becomes the new node
+        if(!this.root) {
             this.root = newNode;
             return this;
         } else {
+            //If there is a root, check if the value of the new node is greater than or less than the value of the root
             var current = this.root;
             while(true) {
                 if(value === current.value) return undefined;
                 if(value < current.value){
+                //If it is less - Check to see if there is a node to the left
                     if(current.left === null){
                         current.left = newNode;
                         return this;
                     } else {
                         current = current.left;
                     }
+                 //If there is not, add the node as the right property
+                 //If there is, move to that node and repeat these steps   
                 } else if(value > current.value) {
                     if(current.right === null) {
                         current.right = newNode;
                         return this;
                     } else {
+                         //If there is not, add that node as the left property
                         current = current.right;
                     }
                 }
@@ -122,14 +121,15 @@ class BST {
     //Invoke the helper function with the current variable. Return the array of values.
 
     DFSPreOrder() {
-        var visited = []
+        var visited = [];
+        current = this.root;
         // can use a variable (current) if you don't want to start at the root
         function traverse(node){
             visited.push(node.value);
             if(node.left) traverse(node.left);
             if(node.right) traverse(node.right);
         }
-        traverse(this.root);
+        traverse(current);
         return visited;
     }
 
@@ -188,7 +188,7 @@ tree.insert(7)
 tree.insert(13)
 tree.insert(5)
 tree.insert(17)
-tree.insert(2)
+tree.insert(9)
 tree.insert(11)
 
 console.log(tree)

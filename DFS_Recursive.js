@@ -116,6 +116,7 @@ class Graph {
             currentVertex = queue.shift();
             result.push(currentVertex);
             //Loop over each vertex in the adjancency list for the vertex you are visiting
+            //.slice().reverse() would switch the visit order of neighbors(i.e. C-B instead of B-C)
             this.adjacencyList[currentVertex].forEach(neighbor => {
             //If it is not inside the object that stores nodes visited, mark it as visited and enqueue that vetex
                 if(!visited[neighbor]){
