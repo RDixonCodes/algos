@@ -30,7 +30,7 @@ class Node {
     }
 };
 
-class BST {
+class BinarySearchTree {
     constructor() {
         this.root = null;
     }
@@ -182,7 +182,7 @@ class BST {
     }
 };
 
-var tree = new BST();
+var tree = new BinarySearchTree();
 tree.insert(10)
 tree.insert(7)
 tree.insert(13)
