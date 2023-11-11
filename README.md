@@ -1,2 +1,2 @@
 # ALGOS
-Algorithms are an essential part of the never ending learning cycle of coding. From singly linked list to stacks, this is where these particular bits of my journey live.
+Algorithms form an indispensable segment within the perpetual learning journey of coding. Within this realm reside my explorations of foundational concepts such as singly linked lists, stacks, and graphs. These fundamental building blocks not only represent specific milestones in my coding odyssey but also signify the continuous evolution and refinement of my coding skills. Delve into this corner of my journey to witness the depth of understanding and application of these essential algorithmic principles.
