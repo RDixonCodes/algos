@@ -24,10 +24,11 @@ function isPal(str){
     return false
 }
 
-// console.log(isPal("434"))
+console.log("Is Pal")
+console.log(isPal("434"))
 
 
-// const r = {I : 1, V : 5, X : 10, L : 50, C : 100, D : 500, M : 1000}
+
 
 
 var mergeTwoLists = function(list1, list2) {
@@ -276,29 +277,42 @@ console.log(lastLength("This is the string "))
 is the (i)th digit of the integer. The digits are ordered from most significant to least significant
 in left-to-right order. The large integer does not contain any leading 0's. 
 
-Increment the large integer by one and return the resulting array of digits.*/
+Increment the large integer by one and return the resulting array of digits. 
+
+Input: digits = [1,2,3]
+Output: [1,2,4]
+Explanation: The array represents the integer 123.
+Incrementing by one gives 123 + 1 = 124.
+Thus, the result should be [1,2,4].
+*/
 
 const plusOne = function(digits) { // NEEDS TO BE WORKED ON
+    let newDigits;
+    let eDigit;
+    let nDigits;
     for(let i = 0; i < digits.length; i++){
-    if(digits.length == 1) {
-        return digits
-    }
-    if(digits[digits.length - 1] >= 9) {
-        digits[digits.length - 1] = digits[digits.length - 1].map(Number)
-        digitsSplit = digits.split('');
-        console.log(digitsSplit)
-        return digitsSplit
-    } else {
-        digits[digits.length - 1] = digits[digits.length - 1] + 1;
+    if(digits.length <= 1 && digits == 9) {
+        digits[i]++;
+        //turn number(digits) into iterable array
+        return Array.from(String(digits), digits => Number(digits));
+        
+        } else if(digits.length > 1) {
+            newDigits = Array.from(String(digits), digits => Number(digits))
+            eDigit = (newDigits[newDigits.length - 1] + 1);
+            console.log(eDigit)
+            newDigits.push(eDigit);
+            console.log('New Digits: ' + newDigits)
+            nDigits = newDigits.splice(newDigits.length - 2, 1);
+            console.log(nDigits)
         }
-        return digits
+        return newDigits;
     }
 }
-//console.log("plus one:")
-// console.log(plusOne([9]))
-// console.log(plusOne([5,3]))
-// console.log(plusOne([3,2,1]))
-// console.log(plusOne([8,7,6,5,4]))
+console.log("plus one:")
+console.log(plusOne([9]))
+console.log(plusOne([5,3]))
+// console.log(plusOne(321))
+// console.log(plusOne(87654))
 // console.log(plusOne([5,4,3,2]))
 
 
@@ -488,5 +502,41 @@ var countConsistentStrings = function(allowed, words) {
     return words.filter((x) => x.split("").every((x) => allowed.split("").includes(x))).length;
 }
 
-console.log(countConsistentStrings("ab", ["ab", "cdef", "aab","ceabd"]))
-console.log(countConsistentStrings("abc", ["abc", "c", "ab","acb"]))
+console.log(countConsistentStrings("ab", ["ab", "cdef", "aab","ceabd"]));
+console.log(countConsistentStrings("abc", ["abc", "c", "ab","acb"]));
+
+
+
+// const myRange = (max, min) => {
+//     return Math.floor(Math.random() * (max - min -1) - min);
+// }
+
+// console.log("My Range");
+// console.log(myRange(21, 3));
+
+
+//using recursion practice 
+const countdown = function(num){
+    if(num < 1) {
+    return [];
+    } else {
+        const newArray = countdown(num - 1);
+        newArray.unshift(num);
+        return newArray;
+    }
+}
+console.log("countdown")
+console.log(countdown(10));
+
+const rangeOfNums = function(start, end) {
+    if(start > end) {
+        return [];
+    } else {
+        const numbers = rangeOfNums(start, end -1);
+        numbers.push(end);
+        console.log(numbers)
+        return numbers;
+    }
+}
+
+console.log(rangeOfNums(2,12))

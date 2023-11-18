@@ -375,3 +375,56 @@ function countDown(num){
     return i;
 }
 // console.log(countDown(20));
+
+//reversing a string without using method
+const reverseThis = function(str){
+    let revStr = "";
+    for(let i = str.length - 1; i >= 0; i--){
+        revStr += str[i];
+    }
+    return revStr;
+}
+
+// console.log(reverseThis("YOLO"))
+// console.log(reverseThis("HAD TO DO IT"))
+
+function factorial(num){
+    let sum = 1;
+    for(let i = 2; i <= num; i++){
+        sum *= i;
+    }
+    return sum;
+}
+
+console.log(factorial(5))
+
+function recursiveFact(num){
+    if(num <= 0) return 1;
+
+    return num * recursiveFact(num - 1)
+}
+
+console.log(recursiveFact(5));
+
+
+function largestOfFour(arr) {
+    let newArr = [];
+    for(let i = 0; i < arr.length; i++){
+      let largeNum = arr[i][0];
+      for (let j = 1; j < arr[i].length; j++){
+        if(arr[i][j] > largeNum) {
+            largeNum = arr[i][j]
+        }
+      }
+      newArr[i] = largeNum;
+    }
+    return newArr;
+  }
+  
+  console.log(largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]]));
+
+function confirmEnding(str, target){
+    return str.slice(str.length - target.length) === target;
+}
+
+console.log(confirmEnding("words", 'ds'))
