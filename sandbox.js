@@ -369,7 +369,7 @@ function power(base, expnt) {
 
 function countDown(num){
 
-    for(var i = num; i > 0; i -- ) {
+    for(var i = num; i > 0; i--) {
         console.log(i)
     }
     return i;
@@ -427,4 +427,125 @@ function confirmEnding(str, target){
     return str.slice(str.length - target.length) === target;
 }
 
-console.log(confirmEnding("words", 'ds'))
+// console.log(confirmEnding("words", 'ds'))
+
+
+function repeatString(str, num) {
+    let repStr = "";
+    if(num < 0) return undefined;
+    while(num > 0){
+        repStr += str;
+        num--;
+    }
+    return repStr;
+}
+
+console.log(repeatString("*",4))
+
+//recursive version
+
+const rptString = (str, num) => {
+    let repStr = "";
+    return num > 0 ? str + repeatString(str, num -1) : "";
+}
+
+// console.log(rptString("shit", 5))
+
+// Truncate a string (first argument) if it is longer than the given maximum string 
+// length (second argument). Return the truncated string with a ... ending.
+
+function trunkString(str, num){
+    if(num < 0) return "";
+    return num < str.length ? str.slice(0, num) + "..." : str;
+}
+
+console.log(trunkString("this is a string with some space", 13))
+
+// Create a function that looks through an array arr and returns the first element 
+// in it that passes a 'truth test'. This means that given an element x, the 'truth test' 
+// is passed if func(x) is true. If no element passes the test, return undefined.
+
+function findElement(arr, func) {
+    let num = 0;
+    for(let i = 0; i < arr.length; i++){
+        num = arr[i];
+        if(func(num)){
+            return num
+        }
+    }
+    return undefined;
+  }
+  
+//   console.log(findElement([5,3,12,23], num => num % 2 === 0));
+
+// Return the provided string with the first letter of each word capitalized. 
+// Make sure the rest of the word is in lower case.
+
+// For the purpose of this exercise, you should also capitalize connecting words like the and of.
+
+function titleCase(str) {
+    const newStr = str.split(" ");
+    const updatedTitle = [];
+
+    for(let st in newStr){
+        updatedTitle[st] = newStr[st][0].toUpperCase() + newStr[st].slice(1).toLowerCase();
+    }
+    return updatedTitle.join(" ");
+  }
+  
+//   console.log(titleCase("I'm a little tea pot"));
+
+// You are given two arrays and an index.
+
+// Copy each element of the first array into the second array, in order.
+
+// Begin inserting elements at index n of the second array.
+
+// Return the resulting array. The input arrays should remain the same after the function runs.
+
+function frankenSplice(arr1, arr2, n) {
+    let result = arr2.slice();
+    for(let i = 0; i < arr1.length; i++){
+        result.splice(n, 0, arr1[i]);
+        n++;
+    }
+    return result;
+  }
+  
+//   console.log(frankenSplice([1, 2, 3], [4, 5, 6], 2));
+
+// Remove all falsy values from an array. Return a new array; do not mutate the original array.
+
+// Falsy values in JavaScript are false, null, 0, "", undefined, and NaN.
+
+// Hint: Try converting each value to a Boolean.
+
+function bouncer(arr) {
+    let result = [];
+    for(let i = 0; i < arr.length; i++){
+      if (arr[i]) result.push(arr[i]);
+      }
+    return result;
+  }
+  
+//   console.log(bouncer([7, "ate", " ", false, 9]));
+
+// Return the lowest index at which a value (second argument) should be inserted into an array 
+// (first argument) once it has been sorted. The returned value should be a number.
+
+// For example, getIndexToIns([1,2,3,4], 1.5) should return 1 because it is greater than 1 
+// (index 0), but less than 2 (index 1).
+
+// Likewise, getIndexToIns([20,3,5], 19) should return 2 because once the array has been sorted 
+// it will look like [3,5,20] and 19 is less than 20 (index 2) and greater than 5 (index 1).
+
+function getIndexToIns(arr, num) {
+    arr.sort((a, b) => a - b);
+    for(let i = 0; i < arr.length; i++){
+        if(arr[i] >= num) return i;
+    }
+    return arr.length;
+}
+
+
+console.log(getIndexToIns([40, 60], 50));
