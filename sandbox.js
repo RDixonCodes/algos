@@ -547,7 +547,7 @@ function getIndexToIns(arr, num) {
     return arr.length;
 }
 
-
+// console.log("sorted")
 // console.log(getIndexToIns([40, 60], 50));
 
 // Return true if the string in the first element of the array contains all of the letters 
@@ -580,7 +580,7 @@ function chunkArrayInGroups(arr, size) {
     const result = [];
 
     for(let i = 0; i < arr.length; i++) {
-        if(i % size !== size -1) temp.push(arr[i]);
+        if(i % size !== size - 1) temp.push(arr[i]);
         else {
             temp.push(arr[i]);
             result.push(temp);
@@ -591,5 +591,6 @@ function chunkArrayInGroups(arr, size) {
     return result;
   }
   
-  console.log(chunkArrayInGroups(["a", "b", "c", "d"], 2));
-  console.log(chunkArrayInGroups([0,1,2,3,4,5,6,7], 5));
+//   console.log(chunkArrayInGroups(["a", "b", "c", "d"], 2));
+//   console.log(chunkArrayInGroups([0,1,2,3,4,5,6,7], 5));
+

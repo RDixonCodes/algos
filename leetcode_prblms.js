@@ -56,8 +56,8 @@ var mergeTwoLists = function(list1, list2) {
     return result;
 };
 
-var list1 = [1,7,12,8];
-var list2 = [5,9,50,32];
+var list1 = [1,7,8,12];
+var list2 = [5,9,32,50];
 
 console.log(mergeTwoLists(list1, list2))
 
@@ -540,3 +540,40 @@ const rangeOfNums = function(start, end) {
 }
 
 console.log(rangeOfNums(2,12))
+
+
+//interview cake problem
+
+// Each order is represented by an "order id" (an integer).
+
+// We have our lists of orders sorted numerically already, 
+// in lists. Write a function to merge our lists of orders into one sorted list
+
+function mergeList(list1, list2){
+    let result = [];
+    let i = 0;
+    let j = 0;
+    while(i < list1.length && j < list2.length){
+        if(list2[j] > list1[i]){
+            result.push(list1[i])
+            i++;
+        } else {
+            result.push(list2[j]);
+            j++;
+        }
+    }
+    while(i < list1.length){
+        result.push(list1[i]);
+        i++;
+    }
+    while(j < list2.length){
+        result.push(list2[j]);
+        j++
+    }
+    return result;
+}
+
+list1 = [3, 4, 6, 10, 11, 15]
+list2 = [1, 5, 8, 12, 14, 19]
+console.log("merge two list")
+console.log(mergeList(list1, list2))
