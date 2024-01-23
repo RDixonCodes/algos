@@ -287,27 +287,41 @@ Thus, the result should be [1,2,4].
 */
 
 const plusOne = function(digits) { // NEEDS TO BE WORKED ON
-    let newDigits;
-    let eDigit;
-    let nDigits;
-    for(let i = 0; i < digits.length; i++){
-    if(digits.length <= 1 && digits == 9) {
-        digits[i]++;
-        //turn number(digits) into iterable array
-        console.log("First run: ")
-        return Array.from(String(digits), digits => Number(digits));
+    // let newDigits;
+    // let eDigit;
+    // let nDigits;
+    // for(let i = 0; i < digits.length; i++){
+    // if(digits.length <= 1 && digits == 9) {
+    //     digits[i]++;
+    //     //turn number(digits) into iterable array
+    //     console.log("First run: ")
+    //     return Array.from(String(digits), digits => Number(digits));
         
-        } else if(digits.length > 1) {
-            newDigits = Array.from(String(digits), digits => Number(digits))
-            console.log("After else statement")
-            eDigit = (newDigits[newDigits.length - 1] + 1);
-            console.log("eDigit: " + eDigit)
-            newDigits.push(eDigit);
-            console.log('New Digits: ' + newDigits)
-            nDigits = newDigits.splice(newDigits.length - 2, 1);
-            console.log("nDigits: " + nDigits)
+    //     } else if(digits.length > 1) {
+    //         // newDigits = Array.from(String(digits), digits => Number(digits))
+    //         console.log("After else statement")
+    //         eDigit = (newDigits[newDigits.length - 1] + 1);
+    //         console.log("eDigit: " + eDigit)
+    //         newDigits.push(eDigit);
+    //         console.log('New Digits: ' + newDigits)
+    //         nDigits = newDigits.splice(newDigits.length - 2, 1);
+    //         console.log("nDigits: " + nDigits)
+    //     }
+    //     return newDigits;
+    // }
+    let d = digits.length - 1;
+    while(true) {
+        if(d < 0){
+            digits.unshift(1);
+            return digits;
         }
-        return newDigits;
+        if(digits[d] + 1 === 10){
+            digits[d] = 0;
+        } else {
+            digits[d] += 1;
+            return digits;
+        }
+        d--;
     }
 }
 console.log("plus one:")
