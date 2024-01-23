@@ -294,16 +294,18 @@ const plusOne = function(digits) { // NEEDS TO BE WORKED ON
     if(digits.length <= 1 && digits == 9) {
         digits[i]++;
         //turn number(digits) into iterable array
+        console.log("First run: ")
         return Array.from(String(digits), digits => Number(digits));
         
         } else if(digits.length > 1) {
             newDigits = Array.from(String(digits), digits => Number(digits))
+            console.log("After else statement")
             eDigit = (newDigits[newDigits.length - 1] + 1);
-            console.log(eDigit)
+            console.log("eDigit: " + eDigit)
             newDigits.push(eDigit);
             console.log('New Digits: ' + newDigits)
             nDigits = newDigits.splice(newDigits.length - 2, 1);
-            console.log(nDigits)
+            console.log("nDigits: " + nDigits)
         }
         return newDigits;
     }
