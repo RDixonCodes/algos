@@ -286,30 +286,9 @@ Incrementing by one gives 123 + 1 = 124.
 Thus, the result should be [1,2,4].
 */
 
-const plusOne = function(digits) { // NEEDS TO BE WORKED ON
-    // let newDigits;
-    // let eDigit;
-    // let nDigits;
-    // for(let i = 0; i < digits.length; i++){
-    // if(digits.length <= 1 && digits == 9) {
-    //     digits[i]++;
-    //     //turn number(digits) into iterable array
-    //     console.log("First run: ")
-    //     return Array.from(String(digits), digits => Number(digits));
-        
-    //     } else if(digits.length > 1) {
-    //         // newDigits = Array.from(String(digits), digits => Number(digits))
-    //         console.log("After else statement")
-    //         eDigit = (newDigits[newDigits.length - 1] + 1);
-    //         console.log("eDigit: " + eDigit)
-    //         newDigits.push(eDigit);
-    //         console.log('New Digits: ' + newDigits)
-    //         nDigits = newDigits.splice(newDigits.length - 2, 1);
-    //         console.log("nDigits: " + nDigits)
-    //     }
-    //     return newDigits;
-    // }
+const plusOne = function(digits) { // working solution
     let d = digits.length - 1;
+
     while(true) {
         if(d < 0){
             digits.unshift(1);
@@ -327,6 +306,7 @@ const plusOne = function(digits) { // NEEDS TO BE WORKED ON
 console.log("plus one:")
 console.log(plusOne([9]))
 console.log(plusOne([5,3]))
+console.log(plusOne([1,3,6]))
 // console.log(plusOne(321))
 // console.log(plusOne(87654))
 // console.log(plusOne([5,4,3,2]))
