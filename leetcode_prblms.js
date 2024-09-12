@@ -569,7 +569,7 @@ function mergeList(list1, list2){
     return result;
 }
 
-list1 = [3, 4, 6, 10, 11, 15]
-list2 = [1, 5, 8, 12, 14, 19]
+list1 = [3, 4, 6, 10]
+list2 = [1, 5, 8, 2]
 console.log("merge two list")
 console.log(mergeList(list1, list2))
