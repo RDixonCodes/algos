@@ -200,7 +200,7 @@ class SinglyLinkedList{
         var node = this.head;
         //Swap the head and tail.
         this.head = this.tail;
-        this.tail = node;
+        this.tail = node;this.insert
         //Create a variable called next.
         var next;
         //Create a variable called prev.
