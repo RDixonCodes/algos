@@ -480,7 +480,6 @@ function findElement(arr, func) {
 
 // Return the provided string with the first letter of each word capitalized. 
 // Make sure the rest of the word is in lower case.
-
 // For the purpose of this exercise, you should also capitalize connecting words like the and of.
 
 function titleCase(str) {
@@ -593,3 +592,57 @@ function chunkArrayInGroups(arr, size) {
   
 //   console.log(chunkArrayInGroups(["a", "b", "c", "d"], 2));
 //   console.log(chunkArrayInGroups([0,1,2,3,4,5,6,7], 5));
+
+//Create a function that takes in a string then returns the count of each character in the string.
+
+function charCount(str){
+    //make object to return at end.
+    var result = {};
+    // loop over string, for each character..
+    for(var i = 0; i < str.length; i++){
+        var char = str[i].toLowerCase();
+    //if the char is a number/letter and is a key in object, add one to count.
+        if(result[char] > 0) {
+            result[char]++;
+        }
+        //if the char is a number/letter and not in object, add it to object and set value to 1
+        else {
+            result[char] = 1;
+        }
+        //if character is something else (space, period, etc.) don't do anything
+    }
+    //return object at end
+    return result;
+}
+
+console.log("Char Count")
+console.log(charCount("Hello"));
+
+
+// Let's say a triple (a, b, c) is a zigzag if either a < b > c or a > b < c. 
+// Given an array of integers numbers, your task is to check all the triples of its consecutive elements for 
+// being a zigzag. More formally, your task is to construct an array of length numbers.length - 2, 
+// where the ith element of the output array equals 1 if the triple (numbers[i], numbers[i + 1], numbers[i + 2]) 
+// is a zigzag, and 0 otherwise.
+
+function solution(numbers) {
+let result = [];
+
+for(var i = 0; i < numbers.length - 2; i++){
+
+    let a = numbers[i];
+    let b = numbers[i + 1];
+    let c = numbers[i + 2];
+
+    if((a < b && b > c) || (a > b && b < c )) {
+        result.push(1);
+    }
+    else {
+        result.push(0);
+    }
+    
+    }
+    return result;
+}
+
+console.log(solution([1,3,2,4,1]));

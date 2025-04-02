@@ -271,7 +271,7 @@ const lastLength = function(str) {
     return `Last word is '${strSplit[strSplit.length - 1]}', with a length of ${lastWordLength} characters`
 }
 
-console.log(lastLength("This is the string "))
+console.log(lastLength("This is the string"))
 
 /* You are given a large integer represented as an integer array (digits), where each (digits[i])
 is the (i)th digit of the integer. The digits are ordered from most significant to least significant
@@ -571,5 +571,8 @@ function mergeList(list1, list2){
 
 list1 = [3, 4, 6, 10]
 list2 = [1, 5, 8, 2]
-console.log("merge two list")
-console.log(mergeList(list1, list2))
+// console.log("merge two list")
+// console.log(mergeList(list1, list2))
+
+
+
