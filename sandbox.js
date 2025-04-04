@@ -626,17 +626,20 @@ console.log(charCount("Hello"));
 // is a zigzag, and 0 otherwise.
 
 function solution(numbers) {
+//create a variable that will collect results of search
 let result = [];
-
+//loop through array
 for(var i = 0; i < numbers.length - 2; i++){
-
+//create variables for indicies
     let a = numbers[i];
     let b = numbers[i + 1];
     let c = numbers[i + 2];
-
+//create condition for array search
     if((a < b && b > c) || (a > b && b < c )) {
+        //push 1 if conditions are met
         result.push(1);
     }
+    //else push 0
     else {
         result.push(0);
     }
