@@ -627,13 +627,13 @@ console.log(charCount("Hello"));
 
 function solution(numbers) {
 //create a variable that will collect results of search
-let result = [];
+const result = [];
 //loop through array
 for(var i = 0; i < numbers.length - 2; i++){
 //create variables for indicies
-    let a = numbers[i];
-    let b = numbers[i + 1];
-    let c = numbers[i + 2];
+    const a = numbers[i];
+    const b = numbers[i + 1];
+    const c = numbers[i + 2];
 //create condition for array search
     if((a < b && b > c) || (a > b && b < c )) {
         //push 1 if conditions are met
@@ -649,3 +649,37 @@ for(var i = 0; i < numbers.length - 2; i++){
 }
 
 console.log(solution([1,3,2,4,1]));
+
+
+//find pairs within given strings
+// function findPairs(words){
+
+    
+// }
+
+// console.log(findPairs(["top", "tophat", "book", "bookshelf", "door"]))
+
+function solution2(str){
+//create variables to keep count of upper and lower cased letters in string
+    let a = 0;
+    let b = 0;
+    let result;
+    //split string into indeces
+    let word = str.split('');
+    //loop over string
+    for(var i = 0; i < word.length; i++){
+        console.log(word);
+        //check count of upper and lower cased letters
+        if(word[i] === word[i].toUpperCase() ? a++ : b++){
+            console.log(`a = ${a}`);
+            console.log(`b = ${b}`);
+            //count difference between upper and lower cased
+            result = a - b;
+        }
+    }
+    //return result
+    return `solution: result = ${result}`;
+}
+
+console.log("solution2");
+console.log(solution2("euhUjOeoGD"));
