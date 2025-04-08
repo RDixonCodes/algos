@@ -43,7 +43,7 @@ function reformat(){
 
 function addUptTo(n) {
     let total = 0;
-    for(var i=1; i <= n; i++) {
+    for(var i = 1; i <= n; i++) {
         total += i;
     }
     return total;
@@ -101,7 +101,7 @@ console.log(secLargeSmallest(arr1,arr2));
 
 // 2.
 // Write a program to find the most repeated word in a string and the count of the word
-// “Almost nothing was more annoying than having our wasted time wasted on something not worth wasting it on.”
+// “Almost nothing was more annoying than having our time wasted on something not worth wasting it on.”
 
 
 
@@ -159,7 +159,7 @@ const sumZero = (arr) => {
 const countUniqueValues = (arr) => {
     let unique = 0;
     for(var i = 0; i < arr.length; i++){
-        if(arr[i] !== arr[i+1])
+        if(arr[i] !== arr[i + 1])
         unique++;
     }
     return unique;
@@ -177,9 +177,9 @@ function maxSubarraySum(arr, num) {
         return null;
     }
     var max = -Infinity;
-    for (let i = 0; i < arr.length - num + 1; i ++) {
+    for (var i = 0; i < arr.length - num + 1; i ++) {
         temp = 0;
-        for (let j = 0; j < num; j++) {
+        for (var j = 0; j < num; j++) {
             temp += arr[i +j];
         }
         if (temp > max) {
@@ -659,7 +659,7 @@ console.log(solution([1,3,2,4,1]));
 
 // console.log(findPairs(["top", "tophat", "book", "bookshelf", "door"]))
 
-function solution2(str){
+function upDown(str){
 //create variables to keep count of upper and lower cased letters in string
     let a = 0;
     let b = 0;
@@ -681,5 +681,29 @@ function solution2(str){
     return `solution: result = ${result}`;
 }
 
-console.log("solution2");
-console.log(solution2("euhUjOeoGD"));
+// console.log("solution2");
+// console.log(upDown("euhUjOeoGD"));
+
+// You are given a two-digit integer n. Return the sum of its digits.
+// Example
+// For n = 29, the output should be
+// solution(n) = 11.
+
+function addItUp(n){
+    //convert number to string
+    let num = n.toString().split('');
+    //create variable for sum
+    let sum;
+    //loop over number
+    for(n in num){
+        const a = num[0];
+        const b = num[1];
+        //convert back to numbers
+        sum = parseInt(a) + parseInt(b);
+    }
+    //returm sum
+    return sum;
+}
+
+console.log("ADDitUP");
+console.log(addItUp(59));
