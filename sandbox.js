@@ -539,15 +539,18 @@ function bouncer(arr) {
 // it will look like [3,5,20] and 19 is less than 20 (index 2) and greater than 5 (index 1).
 
 function getIndexToIns(arr, num) {
+    //sort array in ascending order
     arr.sort((a, b) => a - b);
+    //loop over array 
     for(let i = 0; i < arr.length; i++){
+        //find where num would fit in array
         if(arr[i] >= num) return i;
     }
-    return arr.length;
+    // return arr.length;
 }
 
-// console.log("sorted")
-// console.log(getIndexToIns([40, 60], 50));
+console.log("sorted")
+console.log(getIndexToIns([40, 60, 20, 51], 30));
 
 // Return true if the string in the first element of the array contains all of the letters 
 // of the string in the second element of the array.
@@ -660,7 +663,7 @@ console.log(solution([1,3,2,4,1]));
 // console.log(findPairs(["top", "tophat", "book", "bookshelf", "door"]))
 
 function upDown(str){
-//create variables to keep count of upper and lower cased letters in string
+    //create variables to keep count of upper and lower cased letters in string
     let a = 0;
     let b = 0;
     let result;
@@ -681,8 +684,8 @@ function upDown(str){
     return `solution: result = ${result}`;
 }
 
-// console.log("solution2");
-// console.log(upDown("euhUjOeoGD"));
+console.log("solution2");
+console.log(upDown("euhUjOeoGD"));
 
 // You are given a two-digit integer n. Return the sum of its digits.
 // Example
@@ -690,20 +693,63 @@ function upDown(str){
 // solution(n) = 11.
 
 function addItUp(n){
-    //convert number to string
-    let num = n.toString().split('');
-    //create variable for sum
-    let sum;
-    //loop over number
-    for(n in num){
-        const a = num[0];
-        const b = num[1];
-        //convert back to numbers
-        sum = parseInt(a) + parseInt(b);
+//convert integers to string
+let num = n.toString().split('');
+//create variable for sum
+let sum;
+//loop over number
+for(n in num){
+    const a = num[0];
+    const b = num[1];
+    //convert back to integers
+    sum = parseInt(a) + parseInt(b);
     }
     //returm sum
     return sum;
 }
 
-console.log("ADDitUP");
-console.log(addItUp(59));
+// console.log("ADDitUP");
+// console.log(addItUp(59));
+
+
+// Given a string s, find the length of the longest substring without duplicate characters.
+
+function  lengthOfSubString(s){
+// delare 
+let result = [];
+// let sub = [];
+let newStr = s.split('');
+
+for(var i = 0; i < newStr.length; i++){
+    //find duplicates
+    }
+    return result;
+}
+
+// console.log("Sub Length");
+// console.log(lengthOfSubString("abcabcde"))
+
+/** write a function called same, which accepts two arrays.
+ * The function should return true if every value in the array has it's corresponding value squared in the second array.
+ * The frequency of values must be the same.
+ */
+
+function same(arr1, arr2){
+// check if arrays have matching lengths
+    if(arr1.length !== arr2.length){
+        return false
+    }
+// loop over arrays
+    for(var i = 0; i < arr1.length; i++){
+        let correctIndex = arr2.indexOf(arr1[i] ** 2); // arr2.indexOf(Math.pow(arr1[i], 2));
+        if(correctIndex === -1){
+            return false
+        }
+        arr2.splice(correctIndex, 1);
+    }
+    //return true if pattern is correct
+    return true;
+}
+
+console.log("same");
+console.log(same([1,2,3,4], [4,1,9,16]));

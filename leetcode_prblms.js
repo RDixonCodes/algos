@@ -262,13 +262,15 @@ const strStr = function(haystack, needle) {
 in the string.*/
 
 const lastLength = function(str) {
-    let lastWordLength = 0;
+    let lastWordLength;
+    let lastWord;
     let strSplit = str.trim().split(" ")
 
     for(let i = 0; i < strSplit.length; i++) {
-        lastWordLength = strSplit[strSplit.length - 1].length
+        lastWordLength = strSplit[strSplit.length - 1].length;
+        lastWord = strSplit[strSplit.length - 1]; 
     }
-    return `Last word is '${strSplit[strSplit.length - 1]}', with a length of ${lastWordLength} characters`
+    return `Last word is '${lastWord}', with a length of ${lastWordLength} characters`
 }
 
 console.log(lastLength("This is the string"))
@@ -361,7 +363,8 @@ console.log(longestPrefix(['car','cir']))
 
 const findVowels = (str) => {
     let lowerStr = str.toLowerCase();
-    let vowels = [];
+    // let vowels = {a, e, i, o, u};
+    let result = []
 
     for(let i = 0; i < lowerStr.length; i++) {
         if(lowerStr[i] === 'a' || 
@@ -369,18 +372,19 @@ const findVowels = (str) => {
         lowerStr[i] === 'i' || 
         lowerStr[i] === 'o'|| 
         lowerStr[i] === 'u') {
-        vowels.push(lowerStr[i])
+        result.push(lowerStr[i])
         }
     }
-    return vowels
+    return result;
 }
 
 console.log(findVowels('This would be a string'))
 
 // .map() function sandboxing
-const places = ['there','here','anywhere','somewhere']
+const places = ['there','here','anywhere','somewhere'];
 
-// console.log(places.map(place => place.length))
+console.log("map function")
+console.log(places.map(place => place.length));
 // console.log(Math.min(...places.map(place => place.length)))
 // console.log(Math.max(...places.map(place => place.length)))
 // console.log(Math.floor(...places.map(place => place.length)))
@@ -546,9 +550,9 @@ console.log(rangeOfNums(2,12))
 // in lists. Write a function to merge our lists of orders into one sorted list
 
 function mergeList(list1, list2){
-    let result = [];
-    let i = 0;
-    let j = 0;
+        let result = [];
+        let i = 0;
+        let j = 0;
     while(i < list1.length && j < list2.length){
         if(list2[j] > list1[i]){
             result.push(list1[i])
@@ -558,21 +562,22 @@ function mergeList(list1, list2){
             j++;
         }
     }
-    while(i < list1.length){
-        result.push(list1[i]);
-        i++;
-    }
-    while(j < list2.length){
-        result.push(list2[j]);
-        j++
-    }
+    // while(i < list1.length){
+    //     result.push(list1[i]);
+    //     i++;
+    // }
+    // while(j < list2.length){
+    //     result.push(list2[j]);
+    //     j++
+    // }
     return result;
 }
 
-list1 = [3, 4, 6, 10]
-list2 = [1, 5, 8, 2]
-// console.log("merge two list")
-// console.log(mergeList(list1, list2))
+list1 = [3, 4, 6, 10];
+list2 = [1, 5, 8, 2];
+
+console.log("merge two list");
+console.log(mergeList(list1, list2));
 
 
 
