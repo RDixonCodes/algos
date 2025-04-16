@@ -734,6 +734,7 @@ for(var i = 0; i < newStr.length; i++){
  * The frequency of values must be the same.
  */
 
+//naive solution
 function same(arr1, arr2){
 // check if arrays have matching lengths
     if(arr1.length !== arr2.length){
@@ -751,5 +752,19 @@ function same(arr1, arr2){
     return true;
 }
 
-console.log("same");
-console.log(same([1,2,3,4], [4,1,9,16]));
+// console.log("same");
+// console.log(same([1,2,3,4], [4,1,9,16]));
+
+
+//refactored
+
+// function same2(arr1, arr2){
+//     if(arr1.length !== arr2.length){
+//         return false;
+//     }
+//     let frequencyCounter1 = {};
+//     let frequencyCounter2 = {};
+//     for(let val of arr1){
+//         frequ
+//     }
+// }

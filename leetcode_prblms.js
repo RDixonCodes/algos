@@ -562,22 +562,57 @@ function mergeList(list1, list2){
             j++;
         }
     }
-    // while(i < list1.length){
-    //     result.push(list1[i]);
-    //     i++;
-    // }
-    // while(j < list2.length){
-    //     result.push(list2[j]);
-    //     j++
-    // }
+    while(i < list1.length){
+        result.push(list1[i]);
+        i++;
+    }
+    while(j < list2.length){
+        result.push(list2[j]);
+        j++
+    }
     return result;
 }
 
 list1 = [3, 4, 6, 10];
 list2 = [1, 5, 8, 2];
 
-console.log("merge two list");
-console.log(mergeList(list1, list2));
+// console.log("merge two list");
+// console.log(mergeList(list1, list2));
+
+/**Given a string (s) containing just the characters '(', ')', '{', '}', '[' and ']', 
+ * determine if the input string is valid.
+
+An input string is valid if:
+
+Open brackets must be closed by the same type of brackets.
+Open brackets must be closed in the correct order.
+Every close bracket has a corresponding open bracket of the same type. */
+
+function isValid(s){
+    //create a variable to hold possible matches
+    let stack = [];
+    //loop over input
+    for(var i = 0; i < s.length; i++){
+        //if an open parentheses is found push to stack..
+        if(s[i] == "("){
+            stack.push(")");
+        } else if(s[i] == "{"){
+            stack.push("}");
+        } else if(s[i] == "["){
+            stack.push("]")
+        //if closed bracket is found check that it matches the last stored open bracket
+        } else if(stack.pop() !== s[i]){
+            return false
+        }
+    }
+    return !stack.length;
+    
+}
+
+console.log("isValid");
+console.log(isValid("({[]}"));
 
 
+let x = [1,2,3,4];
+console.log(x.slice(1,-1));
 
