@@ -571,11 +571,15 @@ function mergeList(list1, list2){
         j++
     }
     return result;
+
+    //refactored. Does this actually cut down on the time complexity?
+    // let newList = list1.concat(list2);
+    // let sorted = newList.sort((a,b) => a - b);
+    // return sorted;
 }
 
 list1 = [3, 4, 6, 10];
 list2 = [1, 5, 8, 2];
-
 // console.log("merge two list");
 // console.log(mergeList(list1, list2));
 
@@ -609,8 +613,20 @@ function isValid(s){
     
 }
 
-console.log("isValid");
-console.log(isValid("({[]}"));
+// console.log("isValid");
+// console.log(isValid("({[]}"));
+
+
+//Given an integer x, return true if x is a palindrome, and false otherwise.
+
+const isPalindrome = (num) => {
+    var s = num.toString();
+    var t = s.split("").reverse().join("");
+    return s === t;
+};
+
+console.log("is palinddrome");
+console.log(isPalindrome(343));
 
 
 
