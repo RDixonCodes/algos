@@ -73,14 +73,14 @@ console.log(mergeTwoLists(list1, list2))
 
 
 var removeDuplicates = function(nums) {
+    let result = [];
     for(var i = 0; i < nums.length; i++){
         if(nums[i] === nums[i + 1]) nums.splice(nums[i], 1);
-        
     }
-    console.log(nums)
-    return nums.length;
+    
+    return `k: ${[nums]} nums length: ${nums.length}`;
 }
-
+console.log("Remove Duplicates");
 console.log(removeDuplicates([1,2,2,3,3,4,5,5]));
 
 class Node{
@@ -211,19 +211,22 @@ var removeDuplicates = function(nums) {
     for(var i = 0; i < unique.length; i++) {
         if(unique[i] == unique[i + 1]) unique.splice(unique[i],1);
     }
-    return {'length': unique.length, 'nums': unique};
+    return {'k': unique.length, 'nums': unique};
 }
 
 //refactored version
-const removeD = function(nums) {
-    newNums = [...new Set(nums)]
+// const removeD = function(nums) {
+//     let result = [];
+//     newNums = [...new Set(nums)]
+//     result.push(newNums);
 
-    return newNums;
-}
+//     return `K: ${newNums.length}, nums: ${result}`;
+// }
 
-console.log(removeD([1,2,2,3,4,4,5,6,6]))
-// console.log(removeDuplicates([1,2,2,3,4,4]))
-// console.log(removeDuplicates('aabbccdee'))
+// console.log(removeD([1,2,2,3,4,4,5,6,6]))
+console.log("remove duplicates");
+console.log(removeDuplicates([1,2,2,3,4,4]))
+console.log(removeDuplicates('aabbccdee'))
 
 /* Given an integer array nums and an integer val, remove all occurrences of val in nums in-place. The relative order of the elements may be changed.
 
@@ -233,12 +236,12 @@ Return k after placing the final result in the first k slots of nums.
 
 Do not allocate extra space for another array. You must do this by modifying the input array in-place with O(1) extra memory. */
 
-var removeElement = function(nums,val) {
-    for(let i = 0; i < nums.length; i++) {
-        if(nums[i] == val) nums.splice(i, 1); 
-    }
-    return [nums.length, nums];
-}
+// var removeElement = function(nums,val) {
+//     for(let i = 0; i < nums.length; i++) {
+//         if(nums[i] == val) nums.splice(i, 1); 
+//     }
+//     return [nums.length, nums];
+// }
 
 // console.log(removeElement([1,2,3,5,7,2], 2))
 
@@ -339,24 +342,26 @@ console.log(timesTwo(919))
 /* Write a function to find the longest common prefix string amongst an array of strings
 If there is no common prefix, return an empty string*/
 
-const longestPrefix = function(strs) {
-    if(!strs.length) return '';
-
-    let prefix = '';
-    let prefixLen = Math.min(...strs.map(strs => strs.length)) // will iterate over each word in array to find smallest prefix that matches
-    for(var i = 0; i < prefixLen; i++) {
-        let subStr = strs[0][i];
-        if(strs.every(strs => strs[i] === subStr)) {
-            prefix += subStr
+var longestPrefix = function(strs) {
+    if(strs.length === 0) {
+        return '';
         }
-        console.log(prefix)
-    }
-    return prefix // giving too many. get rid of index not side by side
+        let ans = strs[0];
+        for(var i = 1; i < strs.length; i++) {
+            while(strs[i].indexOf(ans) !== 0) {
+                ans = ans.substring(0, ans.lengh -1);
+                if(ans === '') {
+                    return '';
+                }
+            }
+        }
+    return ans;
 }
 
-console.log(longestPrefix(["this","that","things"]))
-console.log(longestPrefix(["would","net","slim"]))
-console.log(longestPrefix(['car','cir']))
+console.log("Longest Prefix");
+console.log(longestPrefix(["floor","flight","fling"]));
+console.log(longestPrefix(["would","net","slim"]));
+console.log(longestPrefix(['car','cat']));
 
 
 /* Find vowels in a given string */
@@ -502,6 +507,8 @@ var countConsistentStrings = function(allowed, words) {
     return words.filter((x) => x.split("").every((x) => allowed.split("").includes(x))).length;
 }
 
+//check this solution. Not sure it's giving proper output.
+console.log("Count Consistant Strings");
 console.log(countConsistentStrings("ab", ["ab", "cdef", "aab","ceabd"]));
 console.log(countConsistentStrings("abc", ["abc", "c", "ab","acb"]));
 
@@ -525,8 +532,8 @@ const countdown = function(num){
         return newArray;
     }
 }
-console.log("countdown")
-console.log(countdown(10));
+// console.log("countdown")
+// console.log(countdown(10));
 
 const rangeOfNums = function(start, end) {
     if(start > end) {
@@ -539,7 +546,7 @@ const rangeOfNums = function(start, end) {
     }
 }
 
-console.log(rangeOfNums(2,12))
+// console.log(rangeOfNums(2,12))
 
 
 //interview cake problem
@@ -580,8 +587,8 @@ function mergeList(list1, list2){
 
 list1 = [3, 4, 6, 10];
 list2 = [1, 5, 8, 2];
-// console.log("merge two list");
-// console.log(mergeList(list1, list2));
+console.log("merge two list");
+console.log(mergeList(list1, list2));
 
 /**Given a string (s) containing just the characters '(', ')', '{', '}', '[' and ']', 
  * determine if the input string is valid.
@@ -625,9 +632,46 @@ const isPalindrome = (num) => {
     return s === t;
 };
 
-console.log("is palinddrome");
-console.log(isPalindrome(343));
+// console.log("is palinddrome");
+// console.log(isPalindrome(-343));
+
+/**Given an integer array nums sorted in non-decreasing order, remove the duplicates in-place such that each unique 
+ * element appears only once. The relative order of the elements should be kept the same. Then return the number of 
+ * unique elements in nums.
+
+Consider the number of unique elements of nums to be k, to get accepted, you need to do the following things:
+
+Change the array nums such that the first k elements of nums contain the unique elements in the order they were present 
+in nums initially. The remaining elements of nums are not important as well as the size of nums.
+Return k. */
 
 
 
+/**Given an integer array nums and an integer val, remove all occurrences of val in nums in-place. 
+ * The order of the elements may be changed. Then return the number of elements in nums which are not equal to val.
 
+Consider the number of elements in nums which are not equal to val be k, to get accepted, you need to do the following things:
+
+Change the array nums such that the first k elements of nums contain the elements which are not equal to val. 
+The remaining elements of nums are not important as well as the size of nums.
+Return k. */
+
+function removeElement2(nums, val){
+    let left = 0;
+    let right = nums.length - 1;
+    let result = [];
+
+    while(left <= right){
+        if(nums[left] == val){
+        nums[left] = nums[right];
+        right--;
+        } else {
+            result.push(nums[left]);
+            left++;
+        }
+    }
+    return `[${result}], length: ${left}`;
+};
+
+console.log("Remove Element2");
+console.log(removeElement([0,1,2,2,0,3,4,2], 2));
