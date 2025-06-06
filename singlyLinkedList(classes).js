@@ -73,17 +73,18 @@ class SinglyLinkedList{
     }
 
     // POP pseudocode
-// If there are no nodes in the list, return undefined.
-// Loop through the list until you reach the tail
+
 // Set the next property of the 2nd to last node to be null
 // Set the tail to be the 2nd to last node
 // Decrement the length of the list by 1
 //Return the value of the removed node 
 
     pop() {
+        // If there are no nodes in the list, return undefined.
         if(!this.head) return undefined;
         var current = this.head;
         var newTail = current;
+        // Loop through the list until you reach the tail
         while(current.next){
             newTail = current;
             current = current.next;
@@ -95,17 +96,17 @@ class SinglyLinkedList{
     }
 
     //SHIFT: pseudocode
-    // IF there are no nodes, return undefined
-    // Store the current head property in a variabel
-    // Set the head property to be the current head's next property
-    // Decrement the length by 1
-    //Return the value of the node removed
 
     shift() {
+        // IF there are no nodes, return undefined
         if(!this.head) return undefined;
+        // Store the current head property in a variabel
         var currentHead = this.head;
+        // Set the head property to be the current head's next property
         this.head = currentHead.next;
+        // Decrement the length by 1
         this.length--;
+        //Return the value of the node removed
         return currentHead;
     }
 

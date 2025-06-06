@@ -673,5 +673,5 @@ function removeElement2(nums, val){
     return `[${result}], length: ${left}`;
 };
 
-console.log("Remove Element2");
-console.log(removeElement([0,1,2,2,0,3,4,2], 2));
+// console.log("Remove Element2");
+// console.log(removeElement([0,1,2,2,0,3,4,2], 2));
