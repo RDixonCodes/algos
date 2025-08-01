@@ -715,7 +715,7 @@ for(n in num){
 // Given a string s, find the length of the longest substring without duplicate characters.
 
 function  lengthOfSubString(s){
-// delare 
+// declare 
 let result = [];
 // let sub = [];
 let newStr = s.split('');

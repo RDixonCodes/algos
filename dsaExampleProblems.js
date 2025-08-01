@@ -48,8 +48,8 @@ function same2(arr1, arr2){
 console.log("Frequency Counter");
 console.log(same2([1,2,3,4], [9,1,4,16]));
 
-// ANAGRAMS: Given two string, write a function to determine if the second string is an anagram of the first. 
-// An ANAGRAM is a word, phrase, or name formed by rearranging the letters of another, such as cinema, formed from iceman.
+/* ANAGRAMS: Given two string, write a function to determine if the second string is an anagram of the first. 
+An ANAGRAM is a word, phrase, or name formed by rearranging the letters of another, such as cinema, formed from iceman. **/
 
 function same3(word1, word2){
     if(word1.length != word2.length){
@@ -81,6 +81,46 @@ function same3(word1, word2){
     return true;
 }
 
-console.log("Same3");
-console.log(same3("rat", "car"));
-console.log(same3("awesome", "someawe"));
+// console.log("Same3");
+// console.log(same3("rat", "car"));
+// console.log(same3("awesome", "someawe"));
+
+/* Write a function called sumZero which accepts a sorted array of integers. 
+The function should find the first pair where the sum is 0. Return an array that includes both values that sum to zero
+or undefined if a pair does not exist. **/
+
+function sumZero(arr){
+    let left = 0;
+    let right = arr.length - 1;
+    while(left < right){
+        let sum = arr[left] + arr[right];
+        if(sum === 0){
+            return [arr[left], arr[right]];
+        } else if(sum > 0){
+            right--;
+        } else {
+            left++;
+        }
+    }
+}
+
+// console.log("sumZero");
+// console.log(sumZero([-2,-1,0,1,2,3]));
+
+/** Implement a function called countUniqueValues, which accepts a sorted array, and counts the unique values in the array.
+ * There can be negative numbers in the array, but it will always be sorted.
+ */
+
+function countUniqueValues(arr) {
+    var i = 0;
+    for(var j = 1; j < arr.length; j++){
+        if(arr[i]!== arr[j]) {
+            i++;
+            arr[i] = arr[j];
+        }
+    }
+    return i + 1;
+}
+
+console.log("\nUnique Values");
+console.log(countUniqueValues([1,1,2,3,3,4,5,6,6,7]));
